@@ -11,5 +11,5 @@ class AnnouncementPageLocators:
     BUTTON_SAVE = (By.XPATH, "//section//button[@type='submit']") #Локатор кнопки сохранения
     INPUT_SEARCH = (By.XPATH, "//input[@placeholder='Поиск по объявлениям']") #Локатор поискового ввода
     PRODUCT_CARD = (By.XPATH, "//div[@class='css-1cickmn']//div[@class='css-1n43xc7']") #Локатор найденного объявления
-    EDIT_BUTTON = (By.XPATH, "//*[name()='svg' and @stroke='currentColor']")
-    NAME_PRODUCT_CARD = (By.CSS_SELECTOR, "H2")
+    EDIT_BUTTON = (By.XPATH, "//*[name()='svg' and @stroke='currentColor']") #Локатор кнопки редактирования
+    NAME_PRODUCT_CARD = (By.CSS_SELECTOR, "H2") #Локатор имени в карточке

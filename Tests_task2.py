@@ -1,20 +1,26 @@
 import pytest
+import requests
 from Pages.announcement_page import AnnouncementPage
 
-
-def test_create_announcement(driver):
+@pytest.mark.parametrize('name, price, description, image_url', [
+    ("Шорты", '1200', 'б/у', "https://tvoe.ru/img/1uf8dvh/product/754/1005/8/4670080054185-0.jpg")
+])
+def test_create_announcement(driver, name, price, description, image_url):
     announcement_page = AnnouncementPage(driver)
     announcement_page.open()
     announcement_page.click_create_button()
-    announcement_page.enter_name("Шорты")
-    announcement_page.enter_price('1200')
-    announcement_page.enter_description('б/у')
-    announcement_page.enter_image_url("https://tvoe.ru/img/1uf8dvh/product/754/1005/8/4670080054185-0.jpg")
+    announcement_page.enter_name(name)
+    announcement_page.enter_price(price)
+    announcement_page.enter_description(description)
+    announcement_page.enter_image_url(image_url)
     announcement_page.click_save_button()
     announcement_page.refresh()
-    announcement_page.enter_search("Шорты")
+    announcement_page.enter_search(name)
     announcement_page.wait_redrawing_product_card()
-    assert announcement_page.search_first_price_on_product_card()[:-1] == '1200'
+    assert announcement_page.search_first_price_on_product_card()[:-1] == price
+    announcement_page.click_product_card()
+    #Подчищаю за собой донные
+    requests.delete(f'http://tech-avito-intern.jumpingcrab.com/api/advertisements/{announcement_page.get_current_url().replace("http://tech-avito-intern.jumpingcrab.com/advertisements/", '')}')
 
 
 @pytest.mark.parametrize("create_test_data", [
