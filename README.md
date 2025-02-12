@@ -11,9 +11,10 @@ https://github.com/Gremka90/Gremka90-QA-trainee-assignment-winter-2025.git
 Решение Задания 2.2 находится в дериктории Task_2
 
 Для запуска автоматизированного тестирования необходимо:
-1. Выполните команду: python -m venv .venv
-2. Активировать виртуальное окружение .\.venv\Scripts\activate
-3. Установить зависимости pip install -r requirements.txt
-4. webdriver скачивать не нужно(Selenium скачает версию для вашего Chrome)
-5. тесты запускаются командой pytest -v Tests_task2.py
+1. Перейти в дерикториюю проекта
+2. Создать виртуальное окруение Выполните команду: python -m venv .venv
+3. Активировать виртуальное окружение .\.venv\Scripts\activate
+4. Установить зависимости pip install -r requirements.txt
+5. webdriver скачивать не нужно(Selenium скачает версию для вашего Chrome)
+6. тесты запускаются командой pytest -v Tests_task2.py
 
